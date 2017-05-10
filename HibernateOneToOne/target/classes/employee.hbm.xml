@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.jyoti.hibernate.model.Employee" table="EMPLOYEE" >
+	
+		<id name="id" type="long">
+			<column name="emp_id" />
+			<generator class="identity" />
+		</id>
+		
+		<property name="name" type="string">
+			<column name="emp_name" />
+		</property>
+		
+		<property name="email" type="string">
+			<column name="emp_email" />
+		</property>
+		
+		<one-to-one name="address" class="com.jyoti.hibernate.model.Address"
+			cascade="save-update" />
+	</class>
+	
+</hibernate-mapping>

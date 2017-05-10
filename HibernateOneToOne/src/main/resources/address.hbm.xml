@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+	
+	<hibernate-mapping>
+	
+	<class name = "com.jyoti.hibernate.model.Address" table = "ADDRESS">
+	
+	        <id name="id" type="long">
+			    <column name="emp_id" />
+			    <generator class="foreign">
+			    <param name="property">employee</param>
+			   </generator>
+		   </id>
+		   
+		   <one-to-one name="employee" class="com.jyoti.hibernate.model.Employee"
+			constrained="true"></one-to-one>
+			
+		   <property name="city" type="string">
+			     <column name="emp_city"></column>
+		   </property>
+		   
+		     <property name="state" type="string">
+			     <column name="emp_state"></column>
+		   </property>
+	
+	</class>
+	</hibernate-mapping>
